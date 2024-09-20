@@ -1,7 +1,6 @@
 const moongose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-
 const userSchema = new moongose.Schema({
   name: {
     type: String,
