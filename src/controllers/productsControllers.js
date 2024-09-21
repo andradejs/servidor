@@ -43,7 +43,7 @@ class ProductController {
       await product.save();
       res.status(201).json({ product });
     } catch (error) {
-      res.status(400).json({ errors: ["erro ao criar produto"] });
+      res.status(400).json({error});
     }
   }
 
