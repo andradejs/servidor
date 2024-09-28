@@ -1,7 +1,6 @@
 const Product = require("../models/productModel");
 const bcrypt = require("bcrypt");
 
-
 class ProductController {
   async indexProduct(req, res) {
     try {
@@ -29,7 +28,6 @@ class ProductController {
 
   async storeProduct(req, res) {
     try {
-
       const product = new Product({
         name: req.body.name,
         description: req.body.description,
@@ -37,13 +35,12 @@ class ProductController {
         allergens: req.body.allergens,
         price: req.body.price,
         portion: req.body.portion,
-        url_image: req.file.filename,
       });
 
       await product.save();
       res.status(201).json({ product });
     } catch (error) {
-      res.status(400).json({error});
+      res.status(400).json(error );
     }
   }
 
