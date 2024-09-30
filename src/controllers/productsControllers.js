@@ -15,8 +15,8 @@ class ProductController {
 
   async showProduct(req, res) {
     try {
-      const name = req.params.id;
-      const product = await Product.findOne({ name: name });
+      const id = req.params.id;
+      const product = await Product.findOne({ _id: id });
       if (!product) {
         return res.status(404).json({ errors: ["Product not found"] });
       }
