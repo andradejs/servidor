@@ -9,7 +9,7 @@ const upload = multer(multerConfig);
 
 route.get("/", ProductController.indexProduct);
 route.get("/:id", ProductController.showProduct);
-route.post("/", upload.single("image"), ProductController.storeProduct);
+route.post("/", loginRequired, upload.single("image"), ProductController.storeProduct);
 route.delete("/:id", loginRequired, ProductController.deleteProduct);
 route.put("/:id", loginRequired, ProductController.updateProduct);
 
