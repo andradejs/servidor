@@ -2,13 +2,17 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
 class UserController {
+  getUser(req, res) {
+    res.json("deu certo");
+  }
+
   async storeUser(req, res) {
     try {
       const user = new User(req.body);
       await user.save();
       res.status(201).json({ user });
     } catch (error) {
-      res.status(400).json({ errors: ["Erro ao criar usuário"] });
+      res.status(400).json({ error });
     }
   }
 
